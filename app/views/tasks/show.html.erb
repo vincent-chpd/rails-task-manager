@@ -1,0 +1,12 @@
+
+<div class="page">
+  <h1><%= @task.title %></h1>
+  <p><%= @task.details %></p>
+</div>
+
+
+<div class="buttons">
+  <%= link_to 'Back to list', tasks_path %>
+  <%= link_to 'Edit', edit_task_path %>
+  <%= link_to "Delete", task_path(@task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+</div>
