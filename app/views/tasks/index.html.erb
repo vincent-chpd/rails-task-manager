@@ -3,8 +3,11 @@
 
   <% @tasks.each do |task| %>
     <div class="container">
-      <input type="checkbox" checked=<%= task.completed %> >
-      <p><%= link_to task.title, task_path(task) %></p>
+      <input id="checkbox_<%= task.id %>" type="checkbox" class="task-checkbox">
+      <p> <%= link_to task.title, task_path(task) %>
+        <span> <%= link_to '<i class="fa-solid fa-trash"></i>'.html_safe, task_path(task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        </span>
+      </p>
     </div>
   <% end %>
 </div>
